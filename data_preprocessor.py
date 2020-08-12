@@ -34,7 +34,7 @@ class DataPreprocessor:
     def clean_columns(self, unwanted_columns=[]):
         columns = self._df.columns.values.tolist()
         regex = re.compile(r'Unnamed:')
-        columns_for_removal = [i for i in columns if regex.search(i)]
+        columns_for_removal = [buggy_column for buggy_column in columns if regex.search(buggy_column)]
         columns_for_removal = columns_for_removal + unwanted_columns
         self._df.drop(columns_for_removal, inplace=True, axis=1)
     

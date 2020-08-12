@@ -29,8 +29,8 @@ class CurrencyConverter:
     '''
         Get current currency conversion rates for a currency of choice
     '''
-    def get_rates_from_api(self, to_currency):
-        query = 'https://api.exchangeratesapi.io/latest?base={}'.format(to_currency)
+    def get_rates_from_api(self, from_currency):
+        query = 'https://api.exchangeratesapi.io/latest?base={}'.format(from_currency)
         response = requests.get(
             query,
             headers = {'Content-Type':'application/json'}
@@ -53,7 +53,7 @@ class CurrencyConverter:
     '''
     def convert_to_currency(self, from_currency, rate, columns):
         for column in columns:
-            self._df.loc[self._df['Currency'] == from_currency, column] = self._df.loc[self._df['Currency'] == from_currency][column].apply(lambda x: x * rate)
+            self._df.loc[self._df['Currency'] == from_currency, column] = self._df.loc[self._df['Currency'] == from_currency][column].apply(lambda cell: cell * rate)
     
     '''
         Function to automatically convert all desired columns to main currency
