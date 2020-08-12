@@ -2,7 +2,7 @@
 
 Hello, and welcome to the Archlet Data Science Coding Challenge!
 
-## Description and Goals##
+## Description and Goals ##
 
 In this coding challenge the goal is to create a simple data pipeline.
 The most basic version should consist of a data cleaning operation, a currency conversion operation and an outlier detection.
