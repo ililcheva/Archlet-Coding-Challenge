@@ -63,16 +63,16 @@ class OutlierDetector:
 
         for value in self._df[column]:
             # darkblue background
-            if value < self.get_ranges()[column]['Outer Lower Fence']:
+            if value < self._dfranges[column]['Outer Lower Fence']:
                 rows.append('background-color: #0066ff')
             # lightblue background
-            elif value > self.get_ranges()[column]['Outer Lower Fence'] and value < self.get_ranges()[column]['Inner Lower Fence']:
+            elif value > self._dfranges[column]['Outer Lower Fence'] and value < self._dfranges[column]['Inner Lower Fence']:
                 rows.append('background-color: #cce0ff')
             # lightred background
-            elif value > self.get_ranges()[column]['Inner Upper Fence'] and value < self.get_ranges()[column]['Outer Upper Fence']:
+            elif value > self._dfranges[column]['Inner Upper Fence'] and value < self._dfranges[column]['Outer Upper Fence']:
                 rows.append('background-color: #ffb3b3')
             # darkred background
-            elif value > self.get_ranges()[column]['Outer Upper Fence']:
+            elif value > self._dfranges[column]['Outer Upper Fence']:
                 rows.append('background-color: #cc0000')
             # no background
             else:
